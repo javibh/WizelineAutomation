@@ -22,18 +22,7 @@ class Swang_Purchase(WebDriverSetup):
 
     def test_Purchase_Item(self):
         driver = self.driver
-        self.driver.get("https://www.saucedemo.com/")
-        print("Opening page.... saucedemo.com.....")
-        self.driver.set_page_load_timeout(30)
-
         LogPage = Login(driver)
-        web_title = "Swag Labs"
-
-        if LogPage.getLogo().is_displayed() and (driver.title == web_title):
-            self.assertEqual(driver.title,web_title)
-            print(driver.title + " " + LogPage.getLogo().get_attribute('class') + "  is successfully displayed")
-        else:
-            print("Page is not loading")
 
         sleep(1)
         usrs = LogPage.getUsers().split()

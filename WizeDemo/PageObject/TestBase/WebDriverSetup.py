@@ -2,7 +2,7 @@ import unittest
 from selenium import webdriver
 import time
 import warnings
-import urllib3
+import urllib3, json
 
 from time import sleep
 from PageObject.Pages.LoginPage import Login
@@ -18,6 +18,22 @@ class WebDriverSetup(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(10)
         self.driver.maximize_window() 
+        self.driver.get("https://www.saucedemo.com/")
+        print("Opening page.... saucedemo.com.....")
+        self.driver.set_page_load_timeout(30)
+
+        with open('../../PageObject/Pagedata.json') as f:
+            PageData = json.load(f)
+
+        LogPage = Login(self.driver)
+        web_title = PageData['PageTitle']
+
+        if LogPage.getLogo().is_displayed():
+            self.assertEqual(self.driver.title, web_title, "Name Page is not the expected")
+            print(self.driver.title + " " + LogPage.getLogo().get_attribute('class') + "  is successfully displayed")
+        else:
+            print("\nPage is not loading")
+            self.assertNotIn(web_title, self.driver.title, "Expected Web page name is not contained in web title")
  
     def tearDown(self):
         try:

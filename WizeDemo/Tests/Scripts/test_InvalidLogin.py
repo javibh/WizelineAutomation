@@ -19,25 +19,11 @@ class Swang_InvalinLogin(WebDriverSetup):
  
     def test_Invalid_Page(self):
         driver = self.driver
-        self.driver.get("https://www.saucedemo.com/")
-        print("Opening page.... saucedemo.com.....")
-        self.driver.set_page_load_timeout(30)
-
+        LogPage = Login(driver)
 
         with open('../../PageObject/Pagedata.json') as f:
             PageData = json.load(f)
 
-        LogPage = Login(driver)
-        web_title = PageData['PageTitle']
-
-        if LogPage.getLogo().is_displayed():
-            self.assertEqual(driver.title, web_title, "Name Page is not the expected")
-            print(driver.title + " " + LogPage.getLogo().get_attribute('class') + "  is successfully displayed")
-        else:
-            print("\nPage is not loading")
-            self.assertNotIn(web_title, driver.title, "Expected Web page name is not contained in web title")
-
-        sleep(1)
         usrs = LogPage.getUsers().split()
         pwd = LogPage.getCredential().split()
 
