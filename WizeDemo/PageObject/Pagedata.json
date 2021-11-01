@@ -1,0 +1,37 @@
+{
+    "PageTitle": "Swag Labs",
+    "ProductPage": "PRODUCTS",
+    "CartPage": "YOUR CART",
+    "CheckoutPage": "CHECKOUT: YOUR INFORMATION",
+    "OverviewPage": "CHECKOUT: OVERVIEW",
+    "FinishPage": "CHECKOUT: COMPLETE!",
+    "ValidCred": [
+        {
+            "standard": "standard_user",
+            "lock": "locked_out_user",
+            "problem": "problem_user",
+            "performance": "performance_glitch_user",
+            "password": "secret_sauce"
+        }
+    ],
+    "InvalidCred": [      
+        {
+            "invalid": "usernames",
+            "inpwd": "usernames"
+        }
+    ],
+    "Item1": [      
+        {
+            "name": "Sauce Labs Onesie",
+            "description": "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.",
+            "price": "7.99"
+        }
+    ],
+    "Item2": [      
+        {
+            "name": "Sauce Labs Bike Light",
+            "description": "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.",
+            "price": "9.99"
+        }
+    ]
+}
